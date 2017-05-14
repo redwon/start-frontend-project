@@ -1,0 +1,21 @@
+// Все элементы формы
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='url'],
+input[type='search'],
+input[type='password'],
+textarea,
+select {
+  width: 100%;
+  max-width: 100%;
+  background: none;
+  outline: 0 none;
+  border: 1px solid #dedede;
+  padding: 15px;
+  color: #333;
+  background-color: #fff;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}

@@ -1,0 +1,36 @@
+//  Миксины
+
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin clearlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin absolute-center {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+// Media Queries Min Width
+
+@mixin min-w($width) {
+  @media screen and (min-width: $width) { @content; }
+}
+
+// Media Queries Max Width
+
+@mixin max-w($width) {
+  @media screen and (max-width: $width) { @content; }
+}

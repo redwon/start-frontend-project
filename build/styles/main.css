@@ -1,0 +1,143 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2; }
+
+a {
+  color: #55b3f3;
+  text-decoration: none; }
+  a:hover, a:active {
+    color: #0f84d3; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle; }
+
+section {
+  position: relative; }
+
+.page-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.icon {
+  display: inline-block; }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../fonts/RobotoRegular/RobotoRegular.eot");
+  src: url("../fonts/RobotoRegular/RobotoRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoRegular/RobotoRegular.woff") format("woff"), url("../fonts/RobotoRegular/RobotoRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../fonts/RobotoBold/RobotoBold.eot");
+  src: url("../fonts/RobotoBold/RobotoBold.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoBold/RobotoBold.woff") format("woff"), url("../fonts/RobotoBold/RobotoBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "Roboto", Helvetica, Arial, sans-serif; }
+
+h1 {
+  font-size: 42px; }
+
+h2 {
+  font-size: 36px; }
+
+h3 {
+  font-size: 28px; }
+
+h4 {
+  font-size: 18px; }
+
+h5 {
+  font-size: 16px; }
+
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-check {
+  background-image: url(spritesheet.png);
+  background-position: 0px 0px;
+  width: 26px;
+  height: 20px; }
+
+.icon-close {
+  background-image: url(spritesheet.png);
+  background-position: -28px 0px;
+  width: 20px;
+  height: 20px; }
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='url'],
+input[type='search'],
+input[type='password'],
+textarea,
+select {
+  width: 100%;
+  max-width: 100%;
+  background: none;
+  outline: 0 none;
+  border: 1px solid #dedede;
+  padding: 15px;
+  color: #333;
+  background-color: #fff;
+  margin-top: 8px;
+  margin-bottom: 12px; }
+
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  background: none;
+  outline: 0 none;
+  border: 0 none;
+  border-radius: 0;
+  padding: 8px 25px;
+  background-color: #000;
+  text-transform: uppercase;
+  color: #fff; }
+
+.page-header {
+  position: relative; }
+
+.page-footer {
+  position: relative; }
+
+/*# sourceMappingURL=main.css.map */

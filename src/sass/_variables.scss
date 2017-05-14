@@ -1,0 +1,31 @@
+//  Цвет
+
+$body-bg: #fff;
+$text-color: #333;
+
+// Цвет ссылки
+
+$link-color: #55b3f3;
+$link-color--hover: darken($link-color, 20%);
+
+//  Типографика
+
+$font-family: 'Roboto', Helvetica, Arial, sans-serif;
+// $font-family--helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$font-size: 14px;
+$font-weight: 400; // Regular
+$line-height: 1.2;
+
+// Ширина контейнера
+
+$container-padding: 15px;
+$container-width: 1170px + $container-padding * 2;
+
+//  Адаптивность и соответствующие ширины контейнера
+
+// $screen-xs: 0;
+// $screen-sm: 480px;
+// $screen-md: 768px;
+// $screen-lg: 992px;
+// $screen-xl: 1200px;
