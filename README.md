@@ -5,10 +5,10 @@
 ## Старт проекта
 
 ```bash
-git clone https://github.com/redwon/starter_kit MyProject
+git clone https://github.com/redwon/start-frontend-project MyProject
 cd MyProject
 npm install
-npm install -g grunt-cli (если не установлен)
+npm install -g gulp-cli (если не установлен)
 Дальше используем доступные команды
 ```
 
@@ -23,15 +23,15 @@ npm install -g grunt-cli (если не установлен)
   </thead>
   <tbody>
     <tr>
-      <td width="22%"><code>grunt</code></td>
+      <td width="22%"><code>gulp</code></td>
       <td>Запуск проекта для разработки, сервер и слежение за файлами.</td>
     </tr>
     <tr>
-      <td><code>grunt build</code></td>
+      <td><code>gulp build</code></td>
       <td>Сборка проекта, минификация и оптимизация картинок.</td>
     </tr>
     <tr>
-      <td><code>grunt sprite</code></td>
+      <td><code>gulp sprite</code></td>
       <td>Собрать css спрайт.</td>
     </tr>
   </tbody>
@@ -44,13 +44,13 @@ npm install -g grunt-cli (если не установлен)
 ├── /build/                  # Результат сборки. (Никогда не редактируется).
 ├── /node_modules/           # Node modules. (Никогда не редактируется).
 ├── /src/                    # Исходные файлы.
-│   ├── /_css_lib/           # Стили из этой папки подключаются автоматически.
 │   ├── /_include/           # HTML разметка которая вставляется в другие файлы.
-│   ├── /_js_lib/            # Скрипты из этой папки подключаются автоматически.
+│   ├── /_load-scripts/      # Скрипты из этой папки подключаются автоматически.
+│   ├── /_load-styles/       # Стили из этой папки подключаются автоматически.
 │   ├── /fonts/              # Шрифты.
-│   ├── /img/                # Исходные изображения.
-│   │   └── /sprites/        # Изображения для спрайтов.
-│   ├── /js/                 # Скрипты проекта.
+│   ├── /images/             # Исходные изображения.
+│   │   └── /sprite/         # Изображения для спрайтов.
+│   ├── /scripts/            # Скрипты проекта.
 │   ├── /sass/               # Стили проекта.
 │   │   └── /block/          # Стили для повторяющихся блоков.
 │   │   └── /elements/       # Стили для элементов.
@@ -63,7 +63,7 @@ npm install -g grunt-cli (если не установлен)
 │   │   └── main.scss        # Компилируемый файл.
 └── .editorconfig            # Настройка редактора. http://editorconfig.org
 └── .gitignore
-└── Gruntfile.js             # Конфигурация для Grunt.
+└── gulpfile.js              # Конфигурация для Gulp.
 └── package.json             # Пакеты для NPM.
 ```
 
