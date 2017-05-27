@@ -1,7 +1,7 @@
 build/fonts
-build/css
-build/img
-build/js
+build/styles
+build/images
+build/scripts
 build/*.html
 
 node_modules/

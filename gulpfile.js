@@ -116,7 +116,7 @@ gulp.task('optimize-images', function() {
 
 
 // Sprite
-gulp.task('sprite', function() {
+gulp.task('create-sprite', function() {
   const spritesmith = require('gulp.spritesmith');
   const merge = require('merge-stream');
   let spriteData = gulp.src('./src/images/sprite/*.png').pipe(spritesmith({
@@ -180,6 +180,14 @@ gulp.task('build', function(callback) {
   );
 });
 
+// Sprite
+gulp.task('sprite', function(callback) {
+  gulpSequence(
+    'create-sprite',
+    'copy:images',
+    callback
+  );
+});
 
 // Watch
 gulp.task('serve', ['build-dev'], function() {
