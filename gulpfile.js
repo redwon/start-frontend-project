@@ -64,6 +64,12 @@ gulp.task('copy:fonts', function() {
     .pipe(gulp.dest('./build/fonts'));
 });
 
+gulp.task('copy:php', function() {
+  return gulp.src('./src/**/*.php')
+    .pipe(newer('./build'))
+    .pipe(gulp.dest('./build'));
+});
+
 
 // Concatenate scripts and styles
 gulp.task('concat:scripts', function() {
@@ -164,7 +170,7 @@ gulp.task('clean', function() {
 gulp.task('build-dev', function(callback) {
   gulpSequence(
     'clean',
-    ['style', 'copy:scripts', 'copy:images', 'copy:fonts', 'concat:scripts', 'concat:styles'],
+    ['style', 'copy:scripts', 'copy:images', 'copy:fonts', 'copy:php', 'concat:scripts', 'concat:styles'],
     'html',
     callback
   );
@@ -173,7 +179,7 @@ gulp.task('build-dev', function(callback) {
 gulp.task('build', function(callback) {
   gulpSequence(
     'clean',
-    ['style-build', 'copy:scripts', 'copy:images', 'copy:fonts', 'concat:scripts', 'concat:styles'],
+    ['style-build', 'copy:scripts', 'copy:images', 'copy:fonts', 'copy:php', 'concat:scripts', 'concat:styles'],
     ['minify:css', 'minify:scripts', 'optimize-images'],
     'html',
     callback
@@ -201,6 +207,7 @@ gulp.task('serve', ['build-dev'], function() {
   gulp.watch('src/scripts/*.{js,json}', {cwd: './'}, ['watch:scripts']);
   gulp.watch('src/images/**/*.{jpg,jpeg,gif,png,svg}', {cwd: './'}, ['watch:images']);
   gulp.watch('src/fonts/**/*.{ttf,woff,woff2,eot,svg}', {cwd: './'}, ['watch:fonts']);
+  gulp.watch('src/**/*.php', {cwd: './'}, ['watch:php']);
   gulp.watch('src/_load-scripts/*.js', {cwd: './'}, ['watch:concat-scripts']);
   gulp.watch('src/_load-styles/*.css', {cwd: './'}, ['watch:concat-styles']);
   gulp.watch([
@@ -212,6 +219,7 @@ gulp.task('serve', ['build-dev'], function() {
 gulp.task('watch:scripts', ['copy:scripts'], reload);
 gulp.task('watch:images', ['copy:images'], reload);
 gulp.task('watch:fonts', ['copy:fonts'], reload);
+gulp.task('watch:php', ['copy:php'], reload);
 gulp.task('watch:concat-scripts', ['concat:scripts'], reload);
 gulp.task('watch:concat-styles', ['concat:styles'], reload);
 gulp.task('watch:html', ['html'], reload);
