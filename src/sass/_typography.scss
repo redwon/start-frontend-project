@@ -3,24 +3,28 @@
 // font-family: 'Roboto';
 @font-face {
   font-family: 'Roboto';
-  src: url('../fonts/RobotoRegular/RobotoRegular.eot');
-  src: url('../fonts/RobotoRegular/RobotoRegular.eot?#iefix')format('embedded-opentype'),
-  url('../fonts/RobotoRegular/RobotoRegular.woff') format('woff'),
-  url('../fonts/RobotoRegular/RobotoRegular.ttf') format('truetype');
-  font-style: normal;
   font-weight: normal;
+  src:  local('Roboto'), local('Roboto-Regular');
+  src:  url('../fonts/Roboto-Regular.eot');
+  src:  url('../fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Roboto-Regular.woff2') format('woff2'),
+        url('../fonts/Roboto-Regular.woff') format('woff'),
+        url('../fonts/Roboto-Regular.ttf') format('truetype'),
+        url('../fonts/Roboto-Regular.svg#Roboto-Regular') format('svg');
 }
 
 // font-family: 'Roboto';
 // font-weight: 700;
 @font-face {
   font-family: 'Roboto';
-  src: url('../fonts/RobotoBold/RobotoBold.eot');
-  src: url('../fonts/RobotoBold/RobotoBold.eot?#iefix')format('embedded-opentype'),
-  url('../fonts/RobotoBold/RobotoBold.woff') format('woff'),
-  url('../fonts/RobotoBold/RobotoBold.ttf') format('truetype');
-  font-style: normal;
   font-weight: 700;
+  src:  local('Roboto'), local('Roboto-Bold');
+  src:  url('../fonts/Roboto-Bold.eot');
+  src:  url('../fonts/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Roboto-Bold.woff2') format('woff2'),
+        url('../fonts/Roboto-Bold.woff') format('woff'),
+        url('../fonts/Roboto-Bold.ttf') format('truetype'),
+        url('../fonts/Roboto-Bold.svg#Roboto-Bold') format('svg');
 }
 
 // Заголовки
