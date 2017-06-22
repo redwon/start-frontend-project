@@ -176,8 +176,11 @@ gulp.task('html', function() {
 gulp.task('clean', function() {
   const del = require('del');
   return del([
-    './build/**/*',
-    '!./build/README.md'
+    './build/*.html',
+    './build/fonts',
+    './build/images',
+    './build/scripts',
+    './build/styles'
   ]);
 });
 
