@@ -13,6 +13,7 @@ const rename = require("gulp-rename");
 const autoprefixer = require("autoprefixer");
 const mqpacker = require("css-mqpacker");
 const browserSync = require('browser-sync').create();
+const plumber = require('gulp-plumber');
 
 // Settings
 let postCssSettings = [
@@ -99,6 +100,15 @@ gulp.task('minify:css', function() {
 gulp.task('minify:scripts', function() {
   const uglify = require('gulp-uglify');
   return gulp.src('./build/scripts/*.js')
+    .pipe(plumber({
+      errorHandler: function(err) {
+        notify.onError({
+          title: 'Javascript uglify error',
+          message: err.message
+        })(err);
+        this.emit('end');
+      }
+    }))
     .pipe(uglify({
       mangle: false
     }))
@@ -144,6 +154,15 @@ gulp.task('create-sprite', function() {
 gulp.task('html', function() {
   const fileinclude = require('gulp-file-include');
   return gulp.src('./src/*.html')
+    .pipe(plumber({
+      errorHandler: function(err) {
+        notify.onError({
+          title: 'HTML compilation error',
+          message: err.message
+        })(err);
+        this.emit('end');
+      }
+    }))
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file',
