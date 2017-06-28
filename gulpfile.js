@@ -11,16 +11,13 @@ const postcss = require('gulp-postcss');
 const concat = require('gulp-concat');
 const rename = require("gulp-rename");
 const autoprefixer = require("autoprefixer");
-const mqpacker = require("css-mqpacker");
 const browserSync = require('browser-sync').create();
 const plumber = require('gulp-plumber');
+const gcmq = require('gulp-group-css-media-queries');
 
 // Settings
 let postCssSettings = [
-  autoprefixer({browsers: ['last 2 version']}),
-  mqpacker({
-    sort: true
-  })
+  autoprefixer({browsers: ['last 2 version']})
 ];
 
 // Tasks
@@ -30,6 +27,7 @@ gulp.task('style', function() {
  return gulp.src('./src/sass/main.scss')
   .pipe(sourcemaps.init())
   .pipe(sass().on('error', sass.logError))
+  .pipe(gcmq())
   .pipe(postcss(postCssSettings))
   .pipe(sourcemaps.write('/'))
   .pipe(gulp.dest('./build/styles'))
@@ -41,6 +39,7 @@ gulp.task('style', function() {
 gulp.task('style-build', function() {
  return gulp.src('./src/sass/main.scss')
   .pipe(sass().on('error', sass.logError))
+  .pipe(gcmq())
   .pipe(postcss(postCssSettings))
   .pipe(gulp.dest('./build/styles'));
 });
