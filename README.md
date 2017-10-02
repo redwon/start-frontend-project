@@ -1,18 +1,28 @@
-## Что для этого нужно?
+## Что есть в стартовом проекте
+
+* Препроцессор SCSS
+* Autoprefixer
+* Простой [шаблонизатор](https://www.npmjs.com/package/gulp-file-include) для HTML
+* [Browser Sync](https://www.browsersync.io) (Livereload)
+* Генератор спрайтов
+* Минификация ресурсов
+* Сжатие графики
+* Функциональные папки для JS, CSS файлов
+
+## Что для этого нужно
 
 Установить [NodeJS](https://nodejs.org/en/)  
 Плагин для редактора [Editorconfig](http://editorconfig.org)  
 
 ## Старт проекта
 
+Склонировать проект  
 В консоле перейти в папку с проектом и установить зависимости
 
 ```bash
 npm install
 npm install -g gulp-cli (если не установлен)
 ```
-
-После этого используем доступные команды
 
 ## Доступные команды
 
@@ -45,12 +55,12 @@ start-frontend-project/
 
 ```
 sass/
-├── /block/                # Стили для повторяющихся блоков.
+├── /block/                # Стили для блоков.
 ├── /elements/             # Стили для элементов.
 ├── /pages/                # Стили для страниц.
-└── _base.scss             # Базовые стили. Box sizing.
+└── _base.scss             # Базовые стили. (Box sizing).
 └── _mixins.scss           # Миксины.
-└── _sprite.scss           # Спрайты. (Никогда не редактируется).
+└── _sprite.scss           # Спрайты. (Генерируется генератором спрайтов).
 └── _typography.scss       # Типографика проекта.
 └── _variables.scss        # Переменные.
 └── main.scss              # Компилируемый файл.
@@ -58,6 +68,4 @@ sass/
 
 ## Полезные ссылки
 
-1. [Шпаргалка по работе с консолью](https://github.com/nicothin/web-development/tree/master/bash)
-2. [Консоль для Windows](http://nicothin.pro/page/console-windows)
-3. [Шпаргалка по Git](https://github.com/nicothin/web-development/tree/master/git)
+[Сборник ссылок](https://github.com/redwon/developer-links)
