@@ -183,6 +183,18 @@ gulp.task('clean', function() {
 });
 
 
+// Replace path
+
+gulp.task('replace-path', function() {
+  const replace = require('gulp-replace');
+  gulp.src(['./build/*.html'])
+    .pipe(replace('load-styles.css', 'load-styles.min.css'))
+    .pipe(replace('main.css', 'main.min.css'))
+    .pipe(replace('load-scripts.js', 'load-scripts.min.js'))
+    .pipe(replace('main.js', 'main.min.js'))
+    .pipe(gulp.dest('./build'));
+});
+
 // Main tasks
 
 
@@ -202,6 +214,7 @@ gulp.task('build', function(callback) {
     ['style-build', 'copy:scripts', 'copy:images', 'copy:fonts', 'copy:php', 'concat:scripts', 'concat:styles'],
     ['minify:css', 'minify:scripts', 'optimize-images'],
     'html',
+    'replace-path',
     callback
   );
 });
