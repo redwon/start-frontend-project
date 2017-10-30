@@ -13,6 +13,7 @@ const rename = require("gulp-rename");
 const autoprefixer = require("autoprefixer");
 const browserSync = require('browser-sync').create();
 const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
 const gcmq = require('gulp-group-css-media-queries');
 
 // Settings
