@@ -15,6 +15,7 @@ const browserSync = require('browser-sync').create();
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const gcmq = require('gulp-group-css-media-queries');
+const babel = require('gulp-babel');
 
 // Project config
 let projectConfig = require('./projectConfig.json');
@@ -49,13 +50,18 @@ gulp.task('style-build', function() {
   .pipe(gulp.dest(distPath + 'styles'));
 });
 
+// Script build
+gulp.task('script-build', function() {
+  return gulp.src(srcPath + 'scripts/main.js')
+  .pipe(babel({
+    //plugins: ['transform-runtime'],
+    presets: ['env']
+  }))
+  .pipe(gulp.dest(distPath + 'scripts'));
+});
+
 
 // Copy files
-gulp.task('copy:scripts', function() {
-  return gulp.src(srcPath + 'scripts/*.{js,json}')
-    .pipe(newer(distPath + 'scripts'))
-    .pipe(gulp.dest(distPath + 'scripts'));
-});
 
 gulp.task('copy:images', function() {
   return gulp.src(srcPath + 'images/**/*.{jpg,jpeg,png,gif,svg}')
@@ -208,7 +214,7 @@ gulp.task('replace-path', function() {
 gulp.task('build-dev', function(callback) {
   gulpSequence(
     'clean',
-    ['style', 'copy:scripts', 'copy:images', 'copy:fonts', 'copy:php', 'concat:scripts', 'concat:styles'],
+    ['style', 'script-build', 'copy:images', 'copy:fonts', 'copy:php', 'concat:scripts', 'concat:styles'],
     'html',
     callback
   );
@@ -217,7 +223,7 @@ gulp.task('build-dev', function(callback) {
 gulp.task('build', function(callback) {
   gulpSequence(
     'clean',
-    ['style-build', 'copy:scripts', 'copy:images', 'copy:fonts', 'copy:php', 'concat:scripts', 'concat:styles'],
+    ['style-build', 'script-build', 'copy:images', 'copy:fonts', 'copy:php', 'concat:scripts', 'concat:styles'],
     ['minify:css', 'minify:scripts', 'optimize-images'],
     'html',
     'replace-path',
@@ -253,7 +259,7 @@ gulp.task('serve', ['build-dev'], function() {
   ], {cwd: srcPath}, ['watch:html']);
 });
 
-gulp.task('watch:scripts', ['copy:scripts'], reload);
+gulp.task('watch:scripts', ['script-build'], reload);
 gulp.task('watch:images', ['copy:images'], reload);
 gulp.task('watch:fonts', ['copy:fonts'], reload);
 gulp.task('watch:php', ['copy:php'], reload);
