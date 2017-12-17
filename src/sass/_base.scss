@@ -1,4 +1,4 @@
-//  Базовые стили
+//  Base global styles
 
 html {
   box-sizing: border-box;
@@ -18,16 +18,6 @@ body {
   font-weight: $font-weight;
 	font-size: $font-size;
 	line-height: $line-height;
-}
-
-a {
-  color: $link-color;
-  text-decoration: none;
-
-  &:hover,
-  &:active {
-    color: $link-color--hover;
-  }
 }
 
 img {
