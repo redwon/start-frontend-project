@@ -34,3 +34,25 @@
 @mixin max-w($width) {
   @media screen and (max-width: $width) { @content; }
 }
+
+// Fluid font size
+// $f-min - min font size
+// $f-max - max font size
+// $w-min - min window width
+// $w-max - max window width
+// $fallback - default font size for old browsers support
+// $units - measure units (e.x. px, em, rem, vw)
+@mixin fluid-font($f-min, $f-max, $w-min, $w-max, $fallback: false, $units: px) {
+
+  font-size: $f-min;
+
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      font-size: $fallback;
+    }
+    font-size: calcFluidFontSize($f-min, $f-max, $w-min, $w-max, $units);
+  }
+  @media (min-width: $w-max) {
+    font-size: $f-max;
+  }
+}
